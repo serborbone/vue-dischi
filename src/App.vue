@@ -4,6 +4,7 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <myHeader></myHeader>
     <myMain></myMain>
+    <cardAlbum></cardAlbum>
 
   </div>
 </template>
@@ -12,6 +13,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import myHeader from './components/myHeader.vue'
 import myMain from './components/myMain.vue'
+import cardAlbum from './components/cardAlbum.vue'
 
 export default {
   name: 'App',
@@ -19,6 +21,7 @@ export default {
     // HelloWorld,
     myHeader,
     myMain,
+    cardAlbum,
   }
 }
 </script>
