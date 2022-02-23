@@ -1,0 +1,42 @@
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+}
+.card-container {
+  // height: 500px;
+  min-width: 50%;
+  max-width: 1200px;
+  background-color: burlywood;
+
+  .card {
+    width: calc(100% / 6);
+    margin: 10px;
+    background-color: #2E3A46;
+    padding: 20px 20px 65px 20px;
+    text-align: center;
+
+    .img-wrap {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .album-name {
+      color: #fff;
+      text-transform: uppercase;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .artist-year {
+      color: #787C7E;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+  }
+}
