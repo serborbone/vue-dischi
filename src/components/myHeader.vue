@@ -10,8 +10,7 @@
 
         <div class="select">
           <label for="selectGenre">Filtra per genere: </label>
-          <select id="selectGenre">
-
+          <select id="selectGenre" v-model="selectValue" @change="getValueSelect">
             <option 
               v-for="(genre, index) in albumGenre" 
               :value="genre" 
@@ -33,6 +32,22 @@ export default {
 
   name: 'myHeader',
   props: ['albumGenre'],
+
+  data() {
+    return {
+      selectValue: '',
+    }
+  },
+
+  methods: {
+
+    getValueSelect() {
+    
+      this.$emit('changedGenre', this.selectValue);
+    
+    } 
+
+  },
 
 }
 </script>

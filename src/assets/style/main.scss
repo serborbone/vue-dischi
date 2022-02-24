@@ -5,13 +5,15 @@
   height: 100%;
 
 }
+
 .card-container {
   max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   .card {
-    width: calc(100% / 5 - 40px);
+    max-width: calc(100% / 5 - 40px);
     margin: 20px;
     background-color: #2E3A46;
     padding: 20px 20px 65px 20px;
@@ -22,7 +24,7 @@
 
       img {
         width: 100%;
-        min-width: 120px;
+        min-width: 100px;
       }
     }
 
@@ -40,4 +42,8 @@
     }
 
   }
+}
+
+.d-none {
+  display: none;
 }

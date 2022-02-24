@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <myHeader :albumGenre="getGensAlbum"></myHeader>
-    <myMain @genresReady="pushGen"></myMain>
+    <myHeader :albumGenre="getGensAlbum" @changedGenre="startSearch"></myHeader>
+    <myMain :genreToSearch="currentValue" @genresReady="pushGen"></myMain>
     <cardAlbum></cardAlbum>
 
   </div>
@@ -24,6 +24,8 @@ export default {
   data() {
     return {
         getGensAlbum: [],
+
+        currentValue: '',
     }
   },
 
@@ -35,6 +37,12 @@ export default {
 
         console.log(this.getGensAlbum);
     
+    },
+
+    startSearch(valueReceived) {
+        this.currentValue = valueReceived;
+
+        console.log(this.currentValue);
     }
 
   },

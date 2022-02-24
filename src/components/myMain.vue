@@ -2,7 +2,10 @@
   <section id="main">
     <div class="card-container">
 
-        <cardAlbum v-for="(album, index) in albumList" :key="index" :albumShow="album">
+        <cardAlbum 
+          v-for="(album, index) in albumFiltered" 
+          :key="index" :albumShow="album" 
+        >
         </cardAlbum>
 
     </div>
@@ -18,6 +21,8 @@ import cardAlbum from "./partials/cardAlbum.vue";
 
 export default {
   name: 'myMain',
+
+  props: [ 'genreToSearch'],
 
   components: {
     cardAlbum,
@@ -42,6 +47,7 @@ export default {
           this.albumList = response.data.response;
 
           this.getGenere();
+
         })
         .catch(function (error) {
           console.log(error);
@@ -70,7 +76,29 @@ export default {
 
   mounted() {
     this.getAlbum();
-  }    
+  },
+
+  computed: {
+
+    albumFiltered() {
+
+      if (this.genreToSearch == "") {
+      
+        return this.albumList;
+      
+      } else {
+
+        return this.albumList.filter(item => {
+
+          return item.genre.includes(this.genreToSearch);
+      
+        });
+
+      }
+      
+    }
+
+  },    
 
 }
 </script>
