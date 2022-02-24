@@ -1,6 +1,5 @@
 <template> 
   <section id="main">
-  
     <div class="card-container">
 
         <cardAlbum v-for="(album, index) in albumList" :key="index" :albumShow="album">
@@ -15,7 +14,7 @@
 
 const axios = require('axios');
 
-import cardAlbum from "./cardAlbum.vue";
+import cardAlbum from "./partials/cardAlbum.vue";
 
 export default {
   name: 'myMain',
@@ -28,6 +27,9 @@ export default {
 
     return {
       albumList: [],
+
+      genreList: [],
+
     }
   },
 
@@ -37,18 +39,33 @@ export default {
 
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
-          // handle success
           this.albumList = response.data.response;
-          //console.log(response);
+
+          this.getGenere();
         })
         .catch(function (error) {
-          // handle error
           console.log(error);
         })
         .then(function () {
-          // always executed
         });
+        
     },
+
+
+    getGenere() {
+      for (let i = 0; i < this.albumList.length; i++) {
+            
+          if(!this.genreList.includes(this.albumList[i].genre)) {
+
+              this.genreList.push(this.albumList[i].genre);
+
+          }
+
+        }
+           this.$emit("genresReady", this.genreList);
+    },
+
+
   },
 
   mounted() {

@@ -8,6 +8,21 @@
           <img src="../assets/img/logo.png" alt="logo Spotify">
         </a>
 
+        <div class="select">
+          <label for="selectGenre">Filtra per genere: </label>
+          <select id="selectGenre">
+
+            <option 
+              v-for="(genre, index) in albumGenre" 
+              :value="genre" 
+              :key="index"
+            >
+                {{ genre }}
+            </option>
+
+          </select>
+        </div>
+
     </div>
 
   </section>
@@ -17,6 +32,7 @@
 export default {
 
   name: 'myHeader',
+  props: ['albumGenre'],
 
 }
 </script>

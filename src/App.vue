@@ -1,28 +1,43 @@
 <template>
   <div id="app">
 
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <myHeader></myHeader>
-    <myMain></myMain>
+    <myHeader :albumGenre="getGensAlbum"></myHeader>
+    <myMain @genresReady="pushGen"></myMain>
     <cardAlbum></cardAlbum>
 
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import myHeader from './components/myHeader.vue'
 import myMain from './components/myMain.vue'
-import cardAlbum from './components/cardAlbum.vue'
+import cardAlbum from './components/partials/cardAlbum.vue'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
     myHeader,
     myMain,
     cardAlbum,
-  }
+  },
+
+  data() {
+    return {
+        getGensAlbum: [],
+    }
+  },
+
+  methods: {
+
+    pushGen(genreReceived) {
+    
+        this.getGensAlbum = genreReceived;
+
+        console.log(this.getGensAlbum);
+    
+    }
+
+  },
 }
 </script>
 

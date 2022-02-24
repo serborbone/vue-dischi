@@ -9,4 +9,20 @@
     margin-left: 20px;
   }
 
+  .select {
+    margin-left: auto;
+    margin-right: 20px;
+
+    label {
+      color: #c3c3c3;
+      margin-right: 12px;
+      font-size: 14px;
+    }
+
+    select {
+      padding: 5px 10px;
+    }
+  }
+
+
 }
